@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  br
+  - var results = [{Season_type: "Spring",temperature: 21.1,Season_month:"March"},{Season_type: "Summer",temperature: 27.3,Season_month:"June"},{Season_type: "Winter",temperature: 2.3,Season_month:"November"}];
+  div(class = "container-fluid")
+    div(class = "row")
+     each i,index in results
+        div(class="col-sm-4" onclick=`buy(${index})`) Season_type: #{i.Season_type} 
+        br
+        br 
+        div(class="col-sm-4" onclick=`buy(${index})`) temperature: #{i.temperature}
+        br
+        br  
+        div(class="col-sm-4" onclick=`buy(${index})`) Season_month: #{i.Season_month}
+        script.
+                function buy(itemNo){
+                    alert(`You purchased item ${itemNo+1}`)
+                }
