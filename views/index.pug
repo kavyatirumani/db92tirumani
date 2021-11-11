@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to Assignment-10
+  body
+  h1= message
+  form(method="get" action="/foo")
+  button( class="btn btn-primary", type="button",  onclick="update()") Press Me
+  br
+  br
+  div(id="target") Display 
+  script.
+    let client_count=0;
+    function update() {
+      client_count=client_count+1;
+      document.getElementById('target').innerHTML = `Value now ${client_count}`;
+    }
+
+  
+ 
