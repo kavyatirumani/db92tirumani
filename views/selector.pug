@@ -1,9 +1,0 @@
-extends layout
-
-block content
-  h1= title
-  - var image_names = ["allseasons.jpg","rainy.jpg","Spring.jpg","Summer.jpg","winter.jpg"];
-  - for(let i=0; i<3; i++){
-    - let number = Math.floor(Math.random()*5);
-    img(src = `/images/${image_names[number]}` alt = `Image No ${image_names[number]}`)
-    -}
