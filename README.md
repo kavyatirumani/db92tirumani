@@ -1,15 +1,13 @@
-# db38vissapragada
-Assignment-11
-<a href="https://db38vissapragada.herokuapp.com/">Link to Heroku: https://db38vissapragada.herokuapp.com/ </a>
-<br>
-<br>
-<br>
+# fwb22bekkari
+#### Welcome to Fwb22bekkari 
 
+Working on Pug Templates
 
+Link to the Remote Heroku Server: <https://db22bekkari.herokuapp.com/>
 
-Class - icecream class dog{ constructor(breed,price,colour){
-    this.breed = breed;
-    this.price = price;
-    this.colour = colour;s
+Class - Season class Season{ constructor(season_type,temperature,season_month){
+    this.season_type = season_type;
+    this.temperature = temperature;
+    this.season_month = season_month;
 }
 }

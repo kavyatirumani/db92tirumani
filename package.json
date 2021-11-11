@@ -1,5 +1,5 @@
 {
-  "name": "fwb38vissapragada",
+  "name": "fwb22bekkari",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,12 +7,16 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
+    "debug": "^4.3.2",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
     "mongodb": "^4.1.4",
     "mongoose": "^6.0.12",
-    "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
-  }
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
+  },
+  "description": "Lab 10",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC"
 }

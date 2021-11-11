@@ -2,20 +2,19 @@ extends layout
 
 block content
   h1= title
-  p Welcome to Assignment-10
-  body
-  h1= message
-  form(method="get" action="/foo")
-  button( class="btn btn-primary", type="button",  onclick="update()") Press Me
+  p Welcome to #{title} and It's Started now
+  button(type="button", class="btn btn-info" onclick = "update()") Press Me
   br
   br
-  div(id="target") Display 
-  script.
-    let client_count=0;
-    function update() {
-      client_count=client_count+1;
-      document.getElementById('target').innerHTML = `Value now ${client_count}`;
-    }
+  br
+  #target Display
 
-  
- 
+  script.
+    var client_count = 0;
+    function update(){
+      client_count = client_count + 1;
+      document.getElementById("target").innerHTML = "Value now "+client_count;
+    }
+  br
+  br
+  a(href='Season') Go to Season Page
