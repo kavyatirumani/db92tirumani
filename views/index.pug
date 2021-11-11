@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} and It's Started now
+  button(type="button", class="btn btn-info" onclick = "update()") Press Me
+  br
+  br
+  br
+  #target Display
+
+  script.
+    var client_count = 0;
+    function update(){
+      client_count = client_count + 1;
+      document.getElementById("target").innerHTML = "Value now "+client_count;
+    }
+  br
+  br
+  a(href='Season') Go to Season Page

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  - let items = results 
+   div(class = "container-fluid")
+    div(class = "row")
+     each s,index in items
+        div(class="col-sm-4" onclick=`buy(${index})`) Season-type: #{s.Season_type} 
+        br
+        br 
+        div(class="col-sm-4" onclick=`buy(${index})`) temperature: #{s.temperature}
+        br
+        br  
+        div(class="col-sm-4" onclick=`buy(${index})`) Season-month: #{s.Season_month}
+        script.
+                function buy(itemNo){
+                    alert(`You chosen season ${itemNo+1}`)
+                }
