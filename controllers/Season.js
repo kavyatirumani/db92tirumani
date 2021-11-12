@@ -13,8 +13,15 @@ exports.Season_list = async function(req, res) {
 }; 
  
 // for a specific Season. 
-exports.Season_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Season detail: ' + req.params.id); 
+exports.Season_detail = async function(req, res) { 
+console.log("detail"  + req.params.id) 
+    try { 
+        result = await Season.findById( req.params.id) 
+        res.send(result) 
+    } catch (error) { 
+        res.status(500) 
+        res.send(`{"error": document for id ${req.params.id} not found`); 
+    } 
 }; 
  
 // Handle Season create on POST. 
