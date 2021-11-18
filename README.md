@@ -1,9 +1,7 @@
 # fwb92tirumani
-<<<<<<< HEAD
+
 #### Welcome to Fwb92tirumani
 =======
-#### Welcome to Fwb92tirumani 
->>>>>>> 5fdc6c79d70ec409ae73ded49e92c4f34cf144ec
 
 Working on Pug Templates
 
