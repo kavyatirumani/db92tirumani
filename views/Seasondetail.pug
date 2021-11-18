@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+  h1= title
+  if (toShow == null) 
+    h2 No instance to display with id
+  else 
+    - let Seasonid = toShow._id 
+    - let Season_type = toShow.Season_type 
+    - let Season_temperature = toShow.temperature 
+    - let Season_month = toShow.Season_month 
+    div 
+        div.row 
+        div(class='SeasonAttr mr-3') Season ID is: 
+        div #{Seasonid} 
+        div.row 
+        div(class='SeasonAttr mr-3') Season Type is: 
+        div #{Season_type} 
+        div.row 
+        div(class='SeasonAttr mr-3') Season Temperature is: 
+        div #{Season_temperature} 
+        div.row 
+        div(class='SeasonAttr mr-3') Season month is: 
+        div #{Season_month} 

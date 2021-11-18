@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let Seasonid = toShow._id 
+    - let Season_type = toShow.Season_type 
+    - let Season_temperature = toShow.temperature 
+    - let Season_month = toShow.Season_month
+    - let actionid = "/resource/Season/" + Seasonid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='SeasonAttr mr-3') Season ID is: 
+        div #{Seasonid} 
+      div.row 
+        div(class='SeasonAttr mr-3') Season Type is: 
+        div #{Season_type} 
+      div.row 
+        div(class='SeasonAttr mr-3') Season Temperature is: 
+        div #{Season_temperature} 
+      div.row 
+        div(class='SeasonAttr mr-3') Season Month is: 
+        div #{Season_month} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the Season collection 
+      window.location.href='/Season' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      //Don't need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); /*or resp.text() or whatever the server sends*/
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/Season' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 

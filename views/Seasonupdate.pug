@@ -1,0 +1,45 @@
+extends layout 
+ 
+block content 
+  h1.display-4 = title
+  if (toShow == null) 
+    h2 No instance to update with id
+  else  
+    - let Seasonid = toShow._id 
+    - let Season_type = toShow.Season_type 
+    - let Season_temperature = toShow.temperature 
+    - let Season_month = toShow.Season_month 
+    div.row(class='mb-2 ms-0') 
+      div.SeasonAttr ID is: 
+      p #{Seasonid} 
+    - let actionid = "/resource/Season/" + Seasonid 
+    form(id='SeasonForm', action= actionid, method="PUT") 
+        div.form-group 
+            label.SeasonAttr(for='Season_type') Season type 
+            input#Season_type(type='text', name='Season_type', value= Season_type ) 
+        div.form-group 
+            label.SeasonAttr(for='temperature') Season temperature 
+            input#temperature(type='number', name='temperature', value= Season_temperature ) 
+        div.form-group 
+            label.SeasonAttr(for='Season_month') Season month 
+            input#Season_month(type='text', name='Season_month', value= Season_month )
+        br 
+        input(type="Submit" class = "btn btn-outline-info") 
+ 
+  script. 
+    document.forms['SeasonForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 
