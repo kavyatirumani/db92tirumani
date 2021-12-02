@@ -1,20 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title} and It's Started now
-  button(type="button", class="btn btn-info" onclick = "update()") Press Me
-  br
-  br
-  br
-  #target Display
-
-  script.
-    var client_count = 0;
-    function update(){
-      client_count = client_count + 1;
-      document.getElementById("target").innerHTML = "Value now "+client_count;
-    }
-  br
-  br
-  a(href='Season') Go to Season Page
+extends layout 
+ 
+block content 
+  if (!user) 
+    a(href="/login") Login 
+    br 
+    a(href="/register") Register 
+  if (user) 
+    p You are currently logged in as #{user.username} 
+    a(href="/Season") Take me to Seasons 
+    br 
+    a(href="/logout") Logout 

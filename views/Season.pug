@@ -2,23 +2,28 @@ extends layout
 
 block content
   h1= title
-  //- - let items = ['Season_type','temperature','Season_month']
-  - let items = results;
-  - let o;
-  script.
-    function buy(x){
-      alert('purchased item ' + x)
-   } 
-  div(class='container-fluid')
-    div(class='row m-1')
-    div(class="row row-cols-1 row-cols-sm-4 g-6")
-      each item, index in items
+  p Welcome to #{title}
+  - let items = results 
+   div(class="container-fluid") 
+    div(class="row m-1") 
+      each item in items  
         - let destination = `dispatch(\"/Season/update?id=${item._id}\")`
-        div(class="card text-white bg-secondary mb-3" class='col' class='card' class='card-body' class='card-text' onclick='buy('+index+')') Item #{item.Season_type}(#{item.temperature})is #{item.Season_month}
-          <br><br>
-          button.btn( class="btn-danger ml-1", onclick= destination) Update
+        - let destination1 = `dispatch(\"/Season/create\")`
+        - let destination2 = `dispatch(\"/Season/detail?id=${item._id}\")`
+        - let destination3 = `dispatch(\"/Season/delete?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Season #{item.Season_type}(#{item.Season_month}) is #{item.temperature}
+          button.btn( class="btn-primary ml-1", onclick= destination1, style = "margin:5px;") Create
+          button.btn( class="btn-primary ml-1", onclick= destination, style = "margin:5px;" ) Update
+          button.btn( class="btn-primary ml-1", onclick= destination2, style = "margin:5px;" ) Detail
+          button.btn( class="btn-primary ml-1", onclick= destination3, style = "margin:5px;" ) Delete
 
+
+   
+  script. 
+    function dispatch(path){ 
+      window.location.href=path 
+    } 
   script.
-    function dispatch(path){
-      window.location.href=path
+    function buy(itemNo){
+      alert(`You chosen season ${itemNo+1}`)
     }
